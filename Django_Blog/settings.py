@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+import django-heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +27,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cykaBlyatLmao091u0913j0@)(#U)(*938qIJ92@())' # SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = os.environ['SECRET_KEY'] # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['https://rookiessecretsanctuary.herokuapp.com']
@@ -139,7 +139,7 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 SECURE_SSL_REDIRECT = True
-django_heroku.settings(locals())
+django-heroku.settings(locals())
 
 import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
