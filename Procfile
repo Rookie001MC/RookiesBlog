@@ -1,2 +1,1 @@
-web: gunicorn Django_Blog.wsgi --log-file -
-web: python manage.py runserver
+web: gunicorn djangoherokuapp.wsgi --log-file -
